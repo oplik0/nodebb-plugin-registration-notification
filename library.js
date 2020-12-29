@@ -1,18 +1,18 @@
 "use strict";
 
-const controllers = require('./lib/controllers');
-const user = require.main.require('./src/user');
-const groups = require.main.require('./src/groups');
-const emailer = require.main.require('./src/emailer');
-const meta = require.main.require('./src/meta');
-const notifications = require.main.require('./src/notifications');
-const slugify = require.main.require('./src/slugify');
-    
-const async = require.main.require('async');
-const nconf = require.main.require('nconf');
-const winston = require.main.require('winston');
+var controllers = require('./lib/controllers'),
+	user = require.main.require('./src/user'),
+	groups = require.main.require('./src/groups'),
+	emailer = require.main.require('./src/emailer'),
+	meta = require.main.require('./src/meta'),
+	notifications = require.main.require('./src/notifications'),
+	slugify = require.main.require('./src/slugify'),
 
-const plugin = module.exports;
+	async = require.main.require('async'),
+	nconf = require.main.require('nconf'),
+	winston = require.main.require('winston'),
+
+	plugin = {};
 
 plugin.init = function(params, callback) {
 	var router = params.router,
@@ -94,3 +94,5 @@ function sendNotification(data) {
 		}
 	};
 };
+
+module.exports = plugin;
